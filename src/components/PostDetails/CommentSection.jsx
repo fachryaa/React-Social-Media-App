@@ -7,7 +7,6 @@ import useStyles from './styles'
 import { commentPost } from '../../actions/posts'
 
 const CommentSection = ({ post }) => {
-  console.log(post)
   const classes = useStyles();
   const [comments, setComments] = useState(post?.comments);
   const [comment, setComment] = useState('')

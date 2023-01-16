@@ -4,7 +4,6 @@ import { GoogleOAuthProvider, GoogleLogin, googleLogout } from '@react-oauth/goo
 import jwt_decode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import dotenv from "dotenv";
 
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Input from './Input';
@@ -14,8 +13,6 @@ import useStyles from './styles';
 
 const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
 
-dotenv.config();
-
 const Auth = () => {
   const classes = useStyles();
   const [showPassword, setShowPassword] = useState(false);
@@ -24,7 +21,7 @@ const Auth = () => {
   const [formData, setFormData] = useState(initialState);
   const dispatch = useDispatch();
   const history = useHistory();
-  const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
+  const clientId = "1014706766436-mbismn0ot6j1rhv7c9ifhontbpa4dp3j.apps.googleusercontent.com";
 
   const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
   const handleShowConfirmPassword = () => setShowConfirmPassword((prevShowPassword) => !prevShowPassword);
@@ -51,7 +48,6 @@ const Auth = () => {
   const googleSuccess = async (res) => {
     const token = res.credential;
     const { name, picture: imageUrl, sub: googleId } = jwt_decode(token);
-    console.log(jwt_decode(token));
 
     const data = {
       result: {
