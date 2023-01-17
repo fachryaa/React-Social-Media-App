@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const API = axios.create({ baseURL: 'http://localhost:5000' });
+const API = axios.create({ baseURL: 'https://social-media-app-backend-fdh7.onrender.com' });
 
 API.interceptors.request.use((req) => {
   if(localStorage.getItem('profile')) {
